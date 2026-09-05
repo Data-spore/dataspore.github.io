@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partner & Collaborate | Dataspore OS</title>
+    <style>
+        :root {
+            --bg-color: #0d1117;
+            --panel-bg: #161b22;
+            --border-color: #30363d;
+            --text-primary: #c9d1d9;
+            --text-heading: #ffffff;
+            --accent-green: #238636;
+            --accent-blue: #58a6ff;
+            --code-bg: #010409;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .back-link {
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        h1 {
+            color: var(--text-heading);
+            font-size: 2.2rem;
+            margin: 15px 0 10px 0;
+        }
+
+        .tagline {
+            font-size: 1.1rem;
+            color: #8b949e;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .card {
+            background-color: var(--panel-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 20px;
+        }
+
+        .card h3 {
+            color: var(--text-heading);
+            margin-top: 0;
+        }
+
+        .stat-highlight {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--accent-blue);
+            margin-bottom: 5px;
+        }
+
+        .pipeline-box {
+            background-color: var(--code-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            font-family: monospace;
+            overflow-x: auto;
+            color: #7ee787;
+            margin: 20px 0;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .cta-section {
+            background-color: var(--panel-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 30px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-green);
+            color: #ffffff;
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <a href="https://dataspore.net" class="back-link">&larr; Back to Main Site (dataspore.net)</a>
+        <h1>Collaborator & Partner Hub</h1>
+        <p class="tagline">Building the zero-exfiltration semantic layer for the autonomous agent era.</p>
+    </header>
+
+    <section>
+        <h2>The Opportunity</h2>
+        <p>Enterprise adoption of AI agents is bottlenecked by data infrastructure. 88% of enterprise AI pilots fail in production because LLMs are fed bloated, raw JSON context dumps—creating unsustainable token costs, high latency, and severe privacy risks.</p>
+        <p><strong>Dataspore OS</strong> replaces context dumps with pre-computed, deterministic data contracts, keeping sensitive PII strictly within the customer's perimeter.</p>
+    </section>
+
+    <div class="grid">
+        <div class="card">
+            <div class="stat-highlight">94.2%</div>
+            <strong>Context Reduction</strong>
+            <p>Drastically reduces LLM token overhead by serving clean metric contracts.</p>
+        </div>
+        <div class="card">
+            <div class="stat-highlight">&lt;10ms</div>
+            <strong>Query Latency</strong>
+            <p>Powered by a high-concurrency ClickHouse columnar database layer.</p>
+        </div>
+        <div class="card">
+            <div class="stat-highlight">0%</div>
+            <strong>Raw PII Exposure</strong>
+            <p>Local semantic transformation ensures zero exfiltration of sensitive data.</p>
+        </div>
+    </div>
+
+    <section>
+        <h2>Core Architecture</h2>
+        <div class="pipeline-box">
+[ Ingestion Gate ]  --->  [ Semantic Transformer ]  --->  [ Analytics Cache ]
+ HubSpot / Stripe / GA4     Identity Unification           ClickHouse Engine (<10ms)
+                            Zero-Exfiltration Perimeter    Model Context Protocol (MCP)
+        </div>
+        <ul>
+            <li><strong>Identity Hub (The "Who"):</strong> Unifies disjointed touchpoints under a canonical <code>Dataspore_ID</code>.</li>
+            <li><strong>Event Ledger (The "What"):</strong> High-speed, immutable event store for complete agent auditability.</li>
+            <li><strong>Metric Layer (The "Truth"):</strong> Pre-computed, machine-readable analytical views for downstream LLM agents.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Who We Are Looking For</h2>
+        <p>We are actively engaging with engineers, associates, and design partners who want to build foundational AI infrastructure:</p>
+        <ul>
+            <li><strong>Technical Co-Founders & Core Engineers:</strong> Hands-on experience with ClickHouse, event-driven pipelines, Python/Rust, or LLM agent frameworks (Model Context Protocol, LangChain/LlamaIndex).</li>
+            <li><strong>Design Partners & Strategic Associates:</strong> Data leaders looking to cut enterprise AI costs, enforce data privacy, and run production-grade autonomous workflows.</li>
+        </ul>
+    </section>
+
+    <div class="cta-section">
+        <h2>Ready to Collaborate?</h2>
+        <p>Review the architecture, test the environment, or discuss joining the team.</p>
+        <a href="mailto:james@dataspore.net?subject=Dataspore%20Collaboration" class="btn">Connect with the Founder</a>
+    </div>
+</div>
+
+</body>
+</html>
