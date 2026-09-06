@@ -1,448 +1,379 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Enterprise Security & Privacy Meta Headers -->
-    <meta http-equiv="X-Frame-Options" content="DENY">
-    <meta http-equiv="X-Content-Type-Options" content="nosniff">
-    <meta name="referrer" content="strict-origin-when-cross-origin">
-
-    <title>Dataspore | Enterprise Semantic Data Layer & Agentic Memory</title>
-    
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            900: '#0B0F19',
-                            800: '#111827',
-                            700: '#161F30',
-                            600: '#1E293B',
-                            accent: '#38BDF8',
-                            glow: '#6366F1',
-                            dark: '#0B0F19',
-                            card: '#161F30',
-                            highlight: '#10B981',
-                        }
-                    }
-                }
-            }
-        }
-    </script>
+    <title>Partner & Collaborate | Dataspore OS</title>
     <style>
-        /* Smooth scroll offset fix for sticky navigation header */
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: 5rem;
+        :root {
+            --bg-color: #0d1117;
+            --panel-bg: #161b22;
+            --border-color: #30363d;
+            --text-primary: #c9d1d9;
+            --text-heading: #ffffff;
+            --accent-green: #238636;
+            --accent-blue: #58a6ff;
+            --code-bg: #010409;
+            --input-bg: #0d1117;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .back-link {
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .header-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-nav {
+            display: inline-block;
+            background-color: var(--panel-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-heading);
+            padding: 8px 16px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: border-color 0.2s ease, background-color 0.2s ease;
+        }
+
+        .btn-nav:hover {
+            border-color: var(--accent-blue);
+            color: var(--accent-blue);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            margin-top: 15px;
+            font-size: 0.95rem;
+            border-top: 1px dashed var(--border-color);
+            padding-top: 15px;
+        }
+
+        .nav-links a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-blue);
+        }
+
+        h1 {
+            color: var(--text-heading);
+            font-size: 2.2rem;
+            margin: 10px 0;
+        }
+
+        h2 {
+            color: var(--text-heading);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 8px;
+            margin-top: 40px;
+        }
+
+        .tagline {
+            font-size: 1.1rem;
+            color: #8b949e;
+            margin-top: 0;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .card {
+            background-color: var(--panel-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 20px;
+        }
+
+        .stat-highlight {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--accent-blue);
+            margin-bottom: 5px;
+        }
+
+        .pipeline-box {
+            background-color: var(--code-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            font-family: monospace;
+            overflow-x: auto;
+            color: #7ee787;
+            margin: 20px 0;
+            white-space: pre;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        /* Form Styles */
+        .form-section {
+            background-color: var(--panel-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 30px;
+            margin-top: 40px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            color: var(--text-heading);
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            background-color: var(--input-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 10px 14px;
+            color: var(--text-primary);
+            font-size: 1rem;
+            font-family: inherit;
+        }
+
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+        }
+
+        .cta-section {
+            background-color: var(--panel-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 30px;
+            margin-top: 40px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-green);
+            color: #ffffff;
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.2s ease, opacity 0.2s ease;
+        }
+
+        .btn:hover {
+            opacity: 0.95;
+            background-color: #2ea043;
+        }
+
+        footer {
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            font-size: 0.85rem;
+            color: #8b949e;
         }
     </style>
 </head>
-<body class="bg-brand-900 text-slate-100 font-sans antialiased selection:bg-brand-accent selection:text-brand-900">
+<body>
 
-    <!-- Header / Navigation -->
-    <header class="sticky top-0 z-50 backdrop-blur-md bg-brand-900/80 border-b border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-            <a href="#" class="flex items-center gap-2 font-bold text-xl tracking-tight text-white">
-                <span class="p-1.5 rounded-lg bg-indigo-500/10 text-brand-accent border border-indigo-500/20">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                    </svg>
-                </span>
-                <span class="text-2xl font-black tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">DATASPORE</span>
-            </a>
-            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
-                <a href="#problem" class="hover:text-brand-accent transition-colors">The Challenge</a>
-                <a href="#metrics" class="hover:text-brand-accent transition-colors">Metrics</a>
-                <a href="#architecture" class="hover:text-brand-accent transition-colors">Architecture</a>
-                <a href="#pillars" class="hover:text-brand-accent transition-colors">Core Pillars</a>
-                <a href="#collaboration" class="hover:text-brand-accent transition-colors">Collaboration</a>
-                <a href="#interviews" class="hover:text-brand-accent transition-colors">Research Study</a>
-            </nav>
-            <div class="flex items-center gap-4">
-                <a href="mailto:james@dataspore.net" class="px-4 py-2 text-sm font-semibold rounded-lg bg-brand-accent text-brand-900 hover:bg-sky-300 transition-colors">
-                    Email Founder
-                </a>
-                <a href="https://dataspore.net/collaboration" class="bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold px-4 py-2 rounded-lg transition duration-150 shadow-lg shadow-blue-500/20">
-                    Collaboration Brief
-                </a>
+<div class="container">
+    <header>
+        <div class="header-top">
+            <a href="https://dataspore.net" class="back-link">&larr; Dataspore OS</a>
+            <div class="header-buttons">
+                <a href="#research-study" class="btn-nav">Research Study</a>
+                <a href="#collaborate" class="btn-nav">Collaborate</a>
             </div>
         </div>
+        
+        <h1>Dataspore OS</h1>
+        <p class="tagline">Data integration and agentic AI facilitator for zero-exfiltration semantic operations.</p>
+
+        <nav class="nav-links">
+            <a href="#challenge">The Challenge</a>
+            <a href="#metrics">Metrics</a>
+            <a href="#pillars">Core Pillars</a>
+            <a href="#architecture">Architecture</a>
+        </nav>
     </header>
 
-    <main>
-        <!-- Hero Section -->
-        <section class="relative pt-20 pb-16 md:pt-32 md:pb-24 overflow-hidden border-b border-slate-800/60">
-            <!-- Subtle Background Glows -->
-            <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[120px] pointer-events-none"></div>
-            <div class="absolute top-1/3 left-1/3 w-[300px] h-[300px] bg-emerald-500/5 rounded-full blur-[100px] pointer-events-none"></div>
+    <!-- 1. The Challenge -->
+    <section id="challenge">
+        <h2>The Challenge</h2>
+        <p>Enterprise adoption of AI agents in business operations is bottlenecked by fragmented SaaS data infrastructure. 88% of enterprise AI pilots fail in production because LLMs are fed bloated, raw JSON context dumps—creating unsustainable token costs, high latency, and severe privacy risks across cross-departmental workflows.</p>
+        <p><strong>Dataspore OS</strong> serves as an agentic AI facilitator, replacing raw context dumps with pre-computed, deterministic data contracts that keep sensitive data strictly within your perimeter while empowering non-technical business leaders.</p>
+    </section>
 
-            <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center relative z-10">
-                <span class="inline-flex items-center space-x-2 bg-indigo-500/10 border border-indigo-500/30 text-brand-accent text-xs font-semibold px-3 py-1 rounded-full mb-6 uppercase tracking-wider">
-                    <span>Zero-Exfiltration Enterprise Memory</span>
-                </span>
-                <h1 class="text-4xl sm:text-6xl font-extrabold text-white tracking-tight leading-tight mb-6">
-                    Ground Your AI Agents in <br>
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-indigo-400 to-emerald-400">Unified Enterprise Truth</span>
-                </h1>
-                <p class="mt-6 text-lg sm:text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed mb-10">
-                    Dataspore is the zero-friction semantic data layer that unifies customer identities, billing pipelines, and operational logs within your secure boundary. Process logs programmatically without sending raw data to third-party AI models—eliminating data leakage, model hallucinations, and token overhead.
-                </p>
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                    <a href="#interviews" class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-gradient-to-r from-sky-400 to-indigo-500 text-brand-900 font-bold hover:opacity-90 transition-opacity text-center shadow-lg shadow-sky-500/10">
-                        Join Research Study
-                    </a>
-                    <a href="https://dataspore.net/collaboration" class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-brand-700 hover:bg-slate-800 text-slate-200 font-semibold border border-slate-700 transition-colors text-center">
-                        View Collaboration Brief
-                    </a>
-                </div>
+    <!-- 2. Metrics -->
+    <section id="metrics">
+        <h2>Metrics</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="stat-highlight">94.2%</div>
+                <strong>Context Reduction</strong>
+                <p>Drastically reduces LLM token overhead by serving clean, pre-calculated metric contracts.</p>
             </div>
-        </section>
-
-        <!-- Collaboration Brief Section -->
-        <section id="collaboration" class="py-16 bg-gradient-to-b from-brand-900 via-brand-800 to-brand-900 border-b border-slate-800">
-            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="bg-brand-card/90 border border-indigo-500/30 rounded-2xl p-8 md:p-12 shadow-2xl relative overflow-hidden">
-                    <div class="absolute -right-10 -bottom-10 w-64 h-64 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none"></div>
-                    
-                    <div class="max-w-3xl">
-                        <span class="inline-flex items-center space-x-2 bg-indigo-500/10 border border-indigo-500/30 text-indigo-400 text-xs font-semibold px-3 py-1 rounded-full mb-4 uppercase tracking-wider">
-                            <span>Partner Program</span>
-                        </span>
-                        <h2 class="text-3xl font-extrabold text-white mb-4">Dataspore Collaboration Initiative</h2>
-                        <p class="text-slate-300 leading-relaxed mb-6">
-                            We collaborate directly with forward-thinking data engineering leads, CTOs, and AI architects to co-design zero-exfiltration semantic layers. Learn more about our technical partner roadmap, early deployment access, and joint research projects.
-                        </p>
-                        
-                        <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 pt-2">
-                            <a href="https://dataspore.net/collaboration" class="px-6 py-3 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-sm transition-colors shadow-lg shadow-indigo-500/20 flex items-center gap-2">
-                                <span>Visit Collaboration Brief</span>
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-                            </a>
-                            <a href="mailto:james@dataspore.net?subject=Dataspore%20Collaboration%20Inquiry" class="px-6 py-3 rounded-lg bg-brand-800 hover:bg-slate-800 border border-slate-700 text-slate-200 font-semibold text-sm transition-colors flex items-center gap-2">
-                                <svg class="w-4 h-4 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 002-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-                                <span>Contact James Directly (james@dataspore.net)</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+            <div class="card">
+                <div class="stat-highlight">&lt;10ms</div>
+                <strong>Query Latency</strong>
+                <p>High-concurrency analytical engine powering real-time agentic insights.</p>
             </div>
-        </section>
-
-        <!-- Metrics Grid Section -->
-        <section id="metrics" class="py-16 bg-brand-800 border-b border-slate-800">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div class="p-6 rounded-2xl bg-brand-700/50 border border-slate-800">
-                        <div class="text-3xl sm:text-4xl font-extrabold text-brand-accent">94.2%</div>
-                        <div class="text-sm font-medium text-slate-400 mt-2">LLM Token Reduction</div>
-                        <p class="text-xs text-slate-500 mt-1">Pre-computed semantic context instead of raw dumps.</p>
-                    </div>
-                    <div class="p-6 rounded-2xl bg-brand-700/50 border border-slate-800">
-                        <div class="text-3xl sm:text-4xl font-extrabold text-indigo-400">0%</div>
-                        <div class="text-sm font-medium text-slate-400 mt-2">Third-Party Data Exposure</div>
-                        <p class="text-xs text-slate-500 mt-1">Zero exfiltration via local semantic transformation.</p>
-                    </div>
-                    <div class="p-6 rounded-2xl bg-brand-700/50 border border-slate-800">
-                        <div class="text-3xl sm:text-4xl font-extrabold text-sky-400">&lt;10ms</div>
-                        <div class="text-sm font-medium text-slate-400 mt-2">Query Engine Latency</div>
-                        <p class="text-xs text-slate-500 mt-1">High-concurrency analytical cache integration.</p>
-                    </div>
-                    <div class="p-6 rounded-2xl bg-brand-700/50 border border-slate-800">
-                        <div class="text-3xl sm:text-4xl font-extrabold text-emerald-400">100%</div>
-                        <div class="text-sm font-medium text-slate-400 mt-2">Deterministic Grounding</div>
-                        <p class="text-xs text-slate-500 mt-1">Single source of truth across all system silos.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Problem Discovery & Interview Research Form Section -->
-        <section id="interviews" class="py-20 bg-brand-800/80 border-b border-slate-800 relative">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-12">
-                    <span class="inline-flex items-center space-x-2 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-semibold px-3 py-1 rounded-full mb-4 uppercase tracking-wider">
-                        <span>Research Study</span>
-                    </span>
-                    <h2 class="text-3xl font-bold text-white sm:text-4xl">Help Shape the Future of Enterprise AI Memory</h2>
-                    <p class="mt-4 text-slate-400 text-base max-w-2xl mx-auto">
-                        We are conducting 20-minute discovery interviews with engineering managers, data architects, and CTOs to understand enterprise data bottlenecks. Share your context challenges to join our research initiative.
-                    </p>
-                </div>
-
-                <form class="bg-brand-700/60 border border-slate-700/70 rounded-2xl p-6 sm:p-10 shadow-2xl space-y-6">
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <div>
-                            <label for="full-name" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Full Name *</label>
-                            <input type="text" id="full-name" required placeholder="Jane Doe" class="w-full bg-brand-900/90 border border-slate-700 rounded-lg px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-brand-accent transition-colors">
-                        </div>
-                        <div>
-                            <label for="work-email" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Work Email *</label>
-                            <input type="email" id="work-email" required placeholder="jane@company.com" class="w-full bg-brand-900/90 border border-slate-700 rounded-lg px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-brand-accent transition-colors">
-                        </div>
-                    </div>
-
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <div>
-                            <label for="role" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Current Role / Title *</label>
-                            <input type="text" id="role" required placeholder="VP of Engineering / Data Lead" class="w-full bg-brand-900/90 border border-slate-700 rounded-lg px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-brand-accent transition-colors">
-                        </div>
-                        <div>
-                            <label for="stack-primary" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Primary SaaS Data Sources</label>
-                            <input type="text" id="stack-primary" placeholder="HubSpot, Stripe, ClickHouse, Postgres..." class="w-full bg-brand-900/90 border border-slate-700 rounded-lg px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-brand-accent transition-colors">
-                        </div>
-                    </div>
-
-                    <div>
-                        <label for="biggest-pain" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">What is your biggest obstacle when connecting operational data to LLMs or AI agents? *</label>
-                        <textarea id="biggest-pain" rows="4" required placeholder="e.g., Unusable context windows, cross-silo identity reconciliation, high API costs, zero-exfiltration security mandates..." class="w-full bg-brand-900/90 border border-slate-700 rounded-lg px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-brand-accent transition-colors"></textarea>
-                    </div>
-
-                    <div class="flex items-center gap-3 pt-2">
-                        <input type="checkbox" id="interview-optin" class="h-4 w-4 rounded border-slate-700 bg-brand-900 text-brand-accent focus:ring-brand-accent">
-                        <label for="interview-optin" class="text-xs text-slate-300">
-                            I'm open to a 20-minute video discovery interview with founder James Atwood (<a href="mailto:james@dataspore.net" class="text-brand-accent underline">james@dataspore.net</a>).
-                        </label>
-                    </div>
-
-                    <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-sky-400 to-indigo-500 text-brand-900 font-bold hover:opacity-90 transition-opacity text-center shadow-lg shadow-sky-500/10">
-                        Submit Research Response
-                    </button>
-                </form>
-            </div>
-        </section>
-
-        <!-- The Problem Section -->
-        <section id="problem" class="py-20 border-t border-slate-900 bg-slate-950/30">
-            <div class="max-w-5xl mx-auto px-6">
-                <div class="grid md:grid-cols-12 gap-12 items-center">
-                    <div class="md:col-span-5">
-                        <span class="text-emerald-400 font-bold uppercase tracking-wider text-xs">The Reality Check</span>
-                        <h2 class="text-3xl md:text-4xl font-extrabold text-white mt-2 mb-6">88% of Enterprise AI Pilots Fail to Reach Production</h2>
-                        <p class="text-slate-400 leading-relaxed mb-6">
-                            The bottleneck isn't the AI models themselves; it's the data infrastructure gaps.
-                        </p>
-                        <p class="text-slate-400 leading-relaxed">
-                            Forcing an AI agent to query fragmented SaaS logs results in logic failures, massive "trust gaps" (only 6% of organizations trust agents fully), and astronomical API bills as raw JSON structures overwhelm prompt context windows.
-                        </p>
-                    </div>
-
-                    <div class="md:col-span-7">
-                        <div class="grid sm:grid-cols-2 gap-4">
-                            <div class="bg-brand-card/50 border border-slate-800 p-6 rounded-2xl">
-                                <div class="text-4xl font-black text-emerald-400 mb-2">94.2%</div>
-                                <div class="text-sm font-semibold text-slate-200">Token Reduction</div>
-                                <p class="text-xs text-slate-500 mt-2">Achieved via lightweight, pre-computed machine-readable data contracts.</p>
-                            </div>
-                            <div class="bg-brand-card/50 border border-slate-800 p-6 rounded-2xl">
-                                <div class="text-4xl font-black text-blue-400 mb-2">100%</div>
-                                <div class="text-sm font-semibold text-slate-200">Tenant Isolation</div>
-                                <p class="text-xs text-slate-500 mt-2">Strict verification routing ensures absolute security boundaries.</p>
-                            </div>
-                            <div class="bg-brand-card/50 border border-slate-800 p-6 rounded-2xl">
-                                <div class="text-4xl font-black text-red-400 mb-2">88%</div>
-                                <div class="text-sm font-semibold text-slate-200">AI Project Failure Rate</div>
-                                <p class="text-xs text-slate-500 mt-2">Stalled due to database access complexity and unstructured outputs.</p>
-                            </div>
-                            <div class="bg-brand-card/50 border border-slate-800 p-6 rounded-2xl">
-                                <div class="text-4xl font-black text-emerald-400 mb-2">0%</div>
-                                <div class="text-sm font-semibold text-slate-200">Third-Party Data Exposure</div>
-                                <p class="text-xs text-slate-500 mt-2">Raw SaaS logs & PII stay completely inside your secure boundary—never fed to third-party LLMs.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Architecture Section (3-Stage Pipeline) -->
-        <section id="architecture" class="py-20 border-t border-slate-800 relative">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-3xl mx-auto mb-16">
-                    <span class="text-blue-400 font-bold uppercase tracking-wider text-xs">Technical Validation</span>
-                    <h2 class="text-3xl font-bold text-white sm:text-4xl mt-2">The Dataspore Architecture</h2>
-                    <p class="mt-4 text-slate-400 leading-relaxed">
-                        A three-stage pipeline collapsing disparate telemetry into three standardized logical schemas without exposing sensitive payloads.
-                    </p>
-                </div>
-
-                <!-- Visual Architecture Flow Schematic -->
-                <div class="mb-16 p-6 sm:p-8 rounded-2xl bg-brand-700 border border-slate-800 shadow-2xl overflow-x-auto">
-                    <div class="min-w-[680px] flex flex-col gap-8">
-                        <div class="grid grid-cols-3 gap-4 text-center">
-                            <div class="text-xs font-semibold text-sky-400 uppercase tracking-wider">Stage 1: Ingestion</div>
-                            <div class="text-xs font-semibold text-indigo-400 uppercase tracking-wider">Stage 2: Transformation</div>
-                            <div class="text-xs font-semibold text-emerald-400 uppercase tracking-wider">Stage 3: Analytics Cache</div>
-                        </div>
-
-                        <div class="grid grid-cols-3 gap-4 items-center">
-                            <div class="p-4 rounded-xl bg-brand-800 border border-slate-700 text-center">
-                                <span class="block font-semibold text-white text-sm">Ingestion Gate</span>
-                                <span class="block text-xs text-slate-400 mt-1">HubSpot • Stripe • GA4</span>
-                            </div>
-                            <div class="relative p-4 rounded-xl bg-brand-800 border border-indigo-500/50 text-center shadow-lg shadow-indigo-500/5">
-                                <span class="block font-semibold text-white text-sm">Semantic Transformer</span>
-                                <span class="block text-xs text-slate-400 mt-1">Unification Engine (Zero Exfiltration)</span>
-                            </div>
-                            <div class="p-4 rounded-xl bg-brand-800 border border-slate-700 text-center">
-                                <span class="block font-semibold text-white text-sm">Analytics Cache</span>
-                                <span class="block text-xs text-slate-400 mt-1">Columnar Engine (ClickHouse)</span>
-                            </div>
-                        </div>
-
-                        <div class="relative flex items-center justify-center">
-                            <div class="absolute inset-0 flex items-center" aria-hidden="true">
-                                <div class="w-full border-t border-slate-700"></div>
-                            </div>
-                            <div class="relative bg-brand-700 px-4 text-xs text-slate-400 font-mono uppercase tracking-wider">
-                                Unified Logical Buckets
-                            </div>
-                        </div>
-
-                        <div class="grid grid-cols-3 gap-4">
-                            <div class="p-4 rounded-xl bg-brand-900/80 border border-slate-800 text-center">
-                                <div class="text-xs text-sky-400 font-mono mb-1">Identity Hub</div>
-                                <div class="text-sm font-semibold text-slate-200">The "Who"</div>
-                                <div class="text-xs text-slate-500 mt-1">Unified Dataspore_ID Graph</div>
-                            </div>
-                            <div class="p-4 rounded-xl bg-brand-900/80 border border-slate-800 text-center">
-                                <div class="text-xs text-indigo-400 font-mono mb-1">Event Ledger</div>
-                                <div class="text-sm font-semibold text-slate-200">The "What"</div>
-                                <div class="text-xs text-slate-500 mt-1">Immutable Event Store</div>
-                            </div>
-                            <div class="p-4 rounded-xl bg-brand-900/80 border border-slate-800 text-center">
-                                <div class="text-xs text-emerald-400 font-mono mb-1">Metric Layer</div>
-                                <div class="text-sm font-semibold text-slate-200">The "Truth"</div>
-                                <div class="text-xs text-slate-500 mt-1">High-Concurrency Views</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Pipeline Stage Cards -->
-                <div class="grid md:grid-cols-3 gap-8">
-                    <div class="bg-brand-card border border-slate-800/80 p-8 rounded-2xl flex flex-col justify-between">
-                        <div>
-                            <div class="w-12 h-12 bg-blue-500/10 text-blue-400 border border-blue-500/20 flex items-center justify-center rounded-xl font-bold text-xl mb-6">01</div>
-                            <h3 class="text-xl font-bold text-white mb-3">Ingestion Gate</h3>
-                            <p class="text-slate-400 text-sm leading-relaxed mb-4">
-                                Zero-lag, multi-tenant ingestion pipelines capturing raw transaction events and logs directly from Stripe, HubSpot, Google Analytics, Zendesk & more.
-                            </p>
-                        </div>
-                        <div class="p-4 rounded-xl bg-brand-800/50 border border-slate-800 text-xs text-slate-400">
-                            <strong class="text-white block mb-1">Identity Hub (The "Who")</strong>
-                            Collapses fragmented IDs into a single deterministic <code class="text-sky-300 font-mono">Dataspore_ID</code> graph.
-                        </div>
-                    </div>
-
-                    <div class="bg-brand-card border border-slate-800/80 p-8 rounded-2xl flex flex-col justify-between">
-                        <div>
-                            <div class="w-12 h-12 bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 flex items-center justify-center rounded-xl font-bold text-xl mb-6">02</div>
-                            <h3 class="text-xl font-bold text-white mb-3">Semantic Transformer</h3>
-                            <p class="text-slate-400 text-sm leading-relaxed mb-4">
-                                Reconciles and standardizes fragmented, cross-platform user identities under an immutable, secure Tenant ID validation workflow.
-                            </p>
-                        </div>
-                        <div class="p-4 rounded-xl bg-brand-800/50 border border-slate-800 text-xs text-slate-400">
-                            <strong class="text-white block mb-1">Event Ledger (The "What")</strong>
-                            Standardizes operational events into an immutable log designed for instant agentic memory retrieval.
-                        </div>
-                    </div>
-
-                    <div class="bg-brand-card border border-slate-800/80 p-8 rounded-2xl flex flex-col justify-between">
-                        <div>
-                            <div class="w-12 h-12 bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 flex items-center justify-center rounded-xl font-bold text-xl mb-6">03</div>
-                            <h3 class="text-xl font-bold text-white mb-3">Analytics Cache</h3>
-                            <p class="text-slate-400 text-sm leading-relaxed mb-4">
-                                Powered by a lightning-fast ClickHouse database layer to deliver highly condensed, pre-computed analytical views with sub-second concurrency.
-                            </p>
-                        </div>
-                        <div class="p-4 rounded-xl bg-brand-800/50 border border-slate-800 text-xs text-slate-400">
-                            <strong class="text-white block mb-1">Metric Layer (The "Truth")</strong>
-                            Serves pre-computed metrics at high concurrency, feeding clean context windows directly to downstream models.
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Core Pillars Section -->
-        <section id="pillars" class="py-20 bg-slate-950/20 border-t border-slate-900">
-            <div class="max-w-5xl mx-auto px-6">
-                <div class="text-center max-w-2xl mx-auto mb-16">
-                    <span class="text-emerald-400 font-bold uppercase tracking-wider text-xs">Value Proposition</span>
-                    <h2 class="text-3xl md:text-4xl font-extrabold text-white mt-2">The Four Pillars of Dataspore</h2>
-                </div>
-
-                <div class="space-y-8">
-                    <!-- Pillar 1 -->
-                    <div class="bg-brand-card/40 border border-slate-800/60 p-8 rounded-2xl">
-                        <div class="md:flex md:items-start md:space-x-8">
-                            <div class="mb-4 md:mb-0 text-blue-400 text-3xl font-extrabold">I.</div>
-                            <div>
-                                <h3 class="text-xl font-bold text-white mb-2">Zero-Engineering Context Unification (The Identity Hub)</h3>
-                                <p class="text-slate-400 text-sm leading-relaxed">
-                                    Our Identity Hub programmatically bridges the cross-platform "trust gap." It maps disjointed touchpoints (e.g., aligning a Stripe payment ID directly with a HubSpot Lead contact record) under a unified identifier. Managers drag and drop business logic; Dataspore's automated systems handle the rest.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Pillar 2 -->
-                    <div class="bg-brand-card/40 border border-slate-800/60 p-8 rounded-2xl">
-                        <div class="md:flex md:items-start md:space-x-8">
-                            <div class="mb-4 md:mb-0 text-indigo-400 text-3xl font-extrabold">II.</div>
-                            <div>
-                                <h3 class="text-xl font-bold text-white mb-2">Radical Token and Structural Cost Savings (The Metric Layer)</h3>
-                                <p class="text-slate-400 text-sm leading-relaxed">
-                                    Feeding heavy, unoptimized payloads to AI agents results in latency bottlenecks and catastrophic API costs. Dataspore's Metric Layer compresses these raw files into super-dense, lightweight, machine-readable contracts, cutting context footprint and operational API bills by up to 94.2%.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Pillar 3 -->
-                    <div class="bg-brand-card/40 border border-slate-800/60 p-8 rounded-2xl">
-                        <div class="md:flex md:items-start md:space-x-8">
-                            <div class="mb-4 md:mb-0 text-emerald-400 text-3xl font-extrabold">III.</div>
-                            <div>
-                                <h3 class="text-xl font-bold text-white mb-2">Absolute Audit Traceability (The Event Ledger)</h3>
-                                <p class="text-slate-400 text-sm leading-relaxed">
-                                    Security and compliance teams require bulletproof data tracking. Built on top of isolated, multi-tenant databases, our Event Ledger acts as an immutable historical record. This allows human operators to trace any autonomous calculation, report, or output back to its original source payload, for perfect auditability.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Pillar 4 -->
-                    <div class="bg-brand-card/40 border border-slate-800/60 p-8 rounded-2xl">
-                        <div class="md:flex md:items-start md:space-x-8">
-                            <div class="mb-4 md:mb-0 text-teal-400 text-3xl font-extrabold">IV.</div>
-                            <div>
-                                <h3 class="text-xl font-bold text-white mb-2">Zero 3rd-Party LLM Exfiltration (Deterministic Security)</h3>
-                                <p class="text-slate-400 text-sm leading-relaxed">
-                                    Raw customer data and sensitive internal telemetry never cross external LLM boundaries. By executing transformations strictly within your isolated network boundary, only sanitized, pre-calculated semantic views are queried, providing deterministic security and absolute data privacy compliance.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="border-t border-slate-800 py-8 bg-brand-900">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between text-sm text-slate-500 gap-4">
-            <div>&copy; Dataspore. All rights reserved.</div>
-            <div class="flex items-center gap-6">
-                <a href="https://dataspore.net/collaboration" class="hover:text-slate-300 transition-colors">Collaboration Brief</a>
-                <a href="mailto:james@dataspore.net" class="hover:text-slate-300 transition-colors">james@dataspore.net</a>
+            <div class="card">
+                <div class="stat-highlight">0%</div>
+                <strong>Raw PII Exposure</strong>
+                <p>Local semantic transformation ensures zero exfiltration of sensitive organizational data.</p>
             </div>
         </div>
+    </section>
+
+    <!-- 3. Core Pillars -->
+    <section id="pillars">
+        <h2>Core Pillars</h2>
+        <ul>
+            <li><strong>Identity Hub (The "Who"):</strong> Unifies disjointed customer and operational touchpoints across department silos under a canonical <code>Dataspore_ID</code>.</li>
+            <li><strong>Event Ledger (The "What"):</strong> High-speed, immutable event store providing auditability and context history for autonomous agents.</li>
+            <li><strong>Metric Layer (The "Truth"):</strong> Pre-computed, machine-readable analytical views designed specifically for downstream LLM agents in Marketing, Sales, Operations, and Finance.</li>
+        </ul>
+    </section>
+
+    <!-- 4. Architecture -->
+    <section id="architecture">
+        <h2>Architecture</h2>
+        <div class="pipeline-box">[ Ingestion Gate ]   --->   [ Semantic Transformer ]   --->   [ Analytics Cache ]
+ HubSpot / Stripe /           Identity Unification           Pre-Computed Views (<10ms)
+ Zendesk / GA4               Zero-Exfiltration Perimeter    Model Context Protocol (MCP)</div>
+    </section>
+
+    <!-- Research Study Form Section -->
+    <section id="research-study" class="form-section">
+        <h2>Participate in the Research Study</h2>
+        <p>We are conducting customer discovery interviews with leaders across business functions to evaluate data integration pain points in agentic AI deployments. Share your workflow requirements to help shape the platform.</p>
+
+        <form action="mailto:james@dataspore.net" method="post" enctype="text/plain">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="full-name">Full Name</label>
+                    <input type="text" id="full-name" name="Full Name" placeholder="e.g. Jane Doe" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Work Email</label>
+                    <input type="email" id="email" name="Email" placeholder="jane@company.com" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="role">Current Role / Title</label>
+                    <input type="text" id="role" name="Current Role" placeholder="e.g. VP of Marketing, Head of Revenue Ops, Finance Director" required>
+                </div>
+                <div class="form-group">
+                    <label for="department">Primary Department</label>
+                    <select id="department" name="Department" required>
+                        <option value="" disabled selected>Select Department...</option>
+                        <option value="Marketing">Marketing</option>
+                        <option value="Sales">Sales / Revenue Ops</option>
+                        <option value="Operations">Operations</option>
+                        <option value="Finance">Finance</option>
+                        <option value="Executive Leadership">Executive Leadership</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="saas-sources">Primary SaaS Data Sources in Use</label>
+                <input type="text" id="saas-sources" name="Primary SaaS Sources" placeholder="e.g. HubSpot, Stripe, Zendesk, GA4" required>
+            </div>
+
+            <div class="form-group">
+                <label for="bottleneck">What is your biggest bottleneck when connecting business data to AI tools?</label>
+                <textarea id="bottleneck" name="Primary Bottleneck" rows="4" placeholder="e.g. Data fragmented across systems, privacy concerns with PII, high LLM token costs, inconsistent operational metrics..."></textarea>
+            </div>
+
+            <button type="submit" class="btn">Submit Research Profile</button>
+        </form>
+    </section>
+
+    <!-- Collaborate Section -->
+    <section id="collaborate" class="cta-section">
+        <h2>Collaborate with Dataspore</h2>
+        <p>Dataspore OS is an agentic AI facilitator and enterprise data integration layer. On our primary collaboration hub, design partners, business leaders, and ecosystem allies can review our technical roadmap, test our zero-exfiltration integration framework, or engage directly in strategic advisory opportunities.</p>
+        
+        <p>Whether you're looking to streamline cross-system data flow for agentic automation in Revenue, Finance, or Operations, or want to explore strategic partnership options, we'd love to connect.</p>
+
+        <div style="margin-top: 20px;">
+            <a href="https://dataspore.net/collaboration" class="btn">Visit Full Collaboration Page</a>
+        </div>
+    </section>
+
+    <footer>
+        &copy; Dataspore OS &bull; <a href="mailto:james@dataspore.net" style="color: var(--accent-blue); text-decoration: none;">james@dataspore.net</a>
     </footer>
+</div>
+
 </body>
 </html>
