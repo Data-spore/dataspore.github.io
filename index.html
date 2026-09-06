@@ -12,9 +12,11 @@
             --text-primary: #c9d1d9;
             --text-heading: #ffffff;
             --accent-green: #238636;
+            --accent-green-hover: #2ea043;
             --accent-blue: #58a6ff;
             --code-bg: #010409;
             --input-bg: #0d1117;
+            --glow-blue: rgba(88, 166, 255, 0.15);
         }
 
         body {
@@ -34,8 +36,8 @@
 
         header {
             border-bottom: 1px solid var(--border-color);
-            padding-bottom: 20px;
-            margin-bottom: 30px;
+            padding-bottom: 25px;
+            margin-bottom: 35px;
         }
 
         .header-top {
@@ -44,13 +46,14 @@
             align-items: center;
             flex-wrap: wrap;
             gap: 15px;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
 
         .back-link {
             color: var(--accent-blue);
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
+            font-weight: 500;
         }
 
         .back-link:hover {
@@ -59,7 +62,7 @@
 
         .header-buttons {
             display: flex;
-            gap: 10px;
+            gap: 12px;
         }
 
         .btn-nav {
@@ -67,109 +70,152 @@
             background-color: var(--panel-bg);
             border: 1px solid var(--border-color);
             color: var(--text-heading);
-            padding: 8px 16px;
+            padding: 8px 18px;
             border-radius: 6px;
             text-decoration: none;
             font-size: 0.9rem;
             font-weight: 600;
-            transition: border-color 0.2s ease, background-color 0.2s ease;
+            transition: all 0.2s ease;
         }
 
         .btn-nav:hover {
             border-color: var(--accent-blue);
             color: var(--accent-blue);
+            box-shadow: 0 0 10px var(--glow-blue);
+        }
+
+        h1 {
+            color: var(--text-heading);
+            font-size: 2.5rem;
+            margin: 10px 0;
+            letter-spacing: -0.5px;
+        }
+
+        .tagline {
+            font-size: 1.15rem;
+            color: #8b949e;
+            margin-top: 0;
         }
 
         .nav-links {
             display: flex;
-            gap: 20px;
-            margin-top: 15px;
+            gap: 24px;
+            margin-top: 20px;
             font-size: 0.95rem;
             border-top: 1px dashed var(--border-color);
-            padding-top: 15px;
+            padding-top: 18px;
         }
 
         .nav-links a {
             color: var(--text-primary);
             text-decoration: none;
             font-weight: 500;
+            transition: color 0.2s ease;
         }
 
         .nav-links a:hover {
             color: var(--accent-blue);
         }
 
-        h1 {
-            color: var(--text-heading);
-            font-size: 2.2rem;
-            margin: 10px 0;
-        }
-
         h2 {
             color: var(--text-heading);
             border-bottom: 1px solid var(--border-color);
-            padding-bottom: 8px;
-            margin-top: 40px;
-        }
-
-        .tagline {
-            font-size: 1.1rem;
-            color: #8b949e;
-            margin-top: 0;
+            padding-bottom: 10px;
+            margin-top: 45px;
+            font-size: 1.6rem;
         }
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 20px;
             margin: 30px 0;
         }
 
+        /* High-Impact Stat Cards */
         .card {
             background-color: var(--panel-bg);
             border: 1px solid var(--border-color);
-            border-radius: 6px;
-            padding: 20px;
+            border-radius: 8px;
+            padding: 24px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            border-color: #444c56;
         }
 
         .stat-highlight {
-            font-size: 1.8rem;
-            font-weight: bold;
+            font-size: 2.2rem;
+            font-weight: 800;
             color: var(--accent-blue);
-            margin-bottom: 5px;
+            line-height: 1.1;
+            margin-bottom: 8px;
+            text-shadow: 0 0 12px var(--glow-blue);
         }
 
+        .card-title {
+            display: block;
+            color: var(--text-heading);
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .card p {
+            margin: 0;
+            font-size: 0.92rem;
+            color: #8b949e;
+        }
+
+        /* Distinct Architecture & Content Boxes */
         .pipeline-box {
             background-color: var(--code-bg);
             border: 1px solid var(--border-color);
-            border-radius: 6px;
-            padding: 15px;
-            font-family: monospace;
+            border-radius: 8px;
+            padding: 20px;
+            font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
             overflow-x: auto;
             color: #7ee787;
-            margin: 20px 0;
+            margin: 25px 0;
             white-space: pre;
+            box-shadow: inset 0 2px 8px rgba(0,0,0,0.5);
+            line-height: 1.5;
         }
 
-        ul {
-            padding-left: 20px;
+        ul.styled-list {
+            padding-left: 0;
+            list-style: none;
         }
 
-        li {
-            margin-bottom: 8px;
+        ul.styled-list li {
+            position: relative;
+            padding-left: 24px;
+            margin-bottom: 12px;
         }
 
-        /* Form Styles */
-        .form-section {
+        ul.styled-list li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--accent-blue);
+            font-weight: bold;
+        }
+
+        /* Form & CTA Panel Styling */
+        .form-section, .cta-section {
             background-color: var(--panel-bg);
             border: 1px solid var(--border-color);
-            border-radius: 6px;
-            padding: 30px;
-            margin-top: 40px;
+            border-radius: 8px;
+            padding: 32px;
+            margin-top: 45px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.3);
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 22px;
             display: flex;
             flex-direction: column;
         }
@@ -185,15 +231,17 @@
             background-color: var(--input-bg);
             border: 1px solid var(--border-color);
             border-radius: 6px;
-            padding: 10px 14px;
+            padding: 12px 14px;
             color: var(--text-primary);
-            font-size: 1rem;
+            font-size: 0.98rem;
             font-family: inherit;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
         }
 
         .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
             outline: none;
             border-color: var(--accent-blue);
+            box-shadow: 0 0 8px var(--glow-blue);
         }
 
         .form-row {
@@ -202,39 +250,33 @@
             gap: 20px;
         }
 
-        .cta-section {
-            background-color: var(--panel-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            padding: 30px;
-            margin-top: 40px;
-        }
-
         .btn {
             display: inline-block;
             background-color: var(--accent-green);
             color: #ffffff;
-            padding: 12px 24px;
+            padding: 13px 28px;
             border-radius: 6px;
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 700;
             font-size: 1rem;
             border: none;
             cursor: pointer;
-            transition: background-color 0.2s ease, opacity 0.2s ease;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.3);
         }
 
         .btn:hover {
-            opacity: 0.95;
-            background-color: #2ea043;
+            background-color: var(--accent-green-hover);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(35, 134, 54, 0.4);
         }
 
         footer {
-            margin-top: 60px;
-            padding-top: 20px;
+            margin-top: 65px;
+            padding-top: 25px;
             border-top: 1px solid var(--border-color);
             text-align: center;
-            font-size: 0.85rem;
+            font-size: 0.88rem;
             color: #8b949e;
         }
     </style>
@@ -275,17 +317,17 @@
         <div class="grid">
             <div class="card">
                 <div class="stat-highlight">94.2%</div>
-                <strong>Context Reduction</strong>
+                <span class="card-title">Context Reduction</span>
                 <p>Drastically reduces LLM token overhead by serving clean, pre-calculated metric contracts.</p>
             </div>
             <div class="card">
                 <div class="stat-highlight">&lt;10ms</div>
-                <strong>Query Latency</strong>
+                <span class="card-title">Query Latency</span>
                 <p>High-concurrency analytical engine powering real-time agentic insights.</p>
             </div>
             <div class="card">
                 <div class="stat-highlight">0%</div>
-                <strong>Raw PII Exposure</strong>
+                <span class="card-title">Raw PII Exposure</span>
                 <p>Local semantic transformation ensures zero exfiltration of sensitive organizational data.</p>
             </div>
         </div>
@@ -294,7 +336,7 @@
     <!-- 3. Core Pillars -->
     <section id="pillars">
         <h2>Core Pillars</h2>
-        <ul>
+        <ul class="styled-list">
             <li><strong>Identity Hub (The "Who"):</strong> Unifies disjointed customer and operational touchpoints across department silos under a canonical <code>Dataspore_ID</code>.</li>
             <li><strong>Event Ledger (The "What"):</strong> High-speed, immutable event store providing auditability and context history for autonomous agents.</li>
             <li><strong>Metric Layer (The "Truth"):</strong> Pre-computed, machine-readable analytical views designed specifically for downstream LLM agents in Marketing, Sales, Operations, and Finance.</li>
@@ -365,7 +407,7 @@
         
         <p>Whether you're looking to streamline cross-system data flow for agentic automation in Revenue, Finance, or Operations, or want to explore strategic partnership options, we'd love to connect.</p>
 
-        <div style="margin-top: 20px;">
+        <div style="margin-top: 24px;">
             <a href="https://dataspore.net/collaboration" class="btn">Visit Full Collaboration Page</a>
         </div>
     </section>
