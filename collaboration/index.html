@@ -43,6 +43,10 @@
             font-size: 0.9rem;
         }
 
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
         h1 {
             color: var(--text-heading);
             font-size: 2.2rem;
@@ -89,6 +93,7 @@
             overflow-x: auto;
             color: #7ee787;
             margin: 20px 0;
+            white-space: pre;
         }
 
         ul {
@@ -108,6 +113,14 @@
             margin-top: 40px;
         }
 
+        .email-display {
+            font-family: monospace;
+            color: var(--accent-blue);
+            font-size: 1.1rem;
+            margin: 10px 0;
+            display: block;
+        }
+
         .btn {
             display: inline-block;
             background-color: var(--accent-green);
@@ -117,10 +130,21 @@
             text-decoration: none;
             font-weight: bold;
             margin-top: 15px;
+            transition: background-color 0.2s ease, opacity 0.2s ease;
         }
 
         .btn:hover {
-            opacity: 0.9;
+            opacity: 0.95;
+            background-color: #2ea043;
+        }
+
+        footer {
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            font-size: 0.85rem;
+            color: #8b949e;
         }
     </style>
 </head>
@@ -159,11 +183,9 @@
 
     <section>
         <h2>Core Architecture</h2>
-        <div class="pipeline-box">
-[ Ingestion Gate ]  --->  [ Semantic Transformer ]  --->  [ Analytics Cache ]
- HubSpot / Stripe / GA4     Identity Unification           ClickHouse Engine (<10ms)
-                            Zero-Exfiltration Perimeter    Model Context Protocol (MCP)
-        </div>
+        <div class="pipeline-box">[ Ingestion Gate ]   --->   [ Semantic Transformer ]   --->   [ Analytics Cache ]
+ HubSpot / Stripe / GA4      Identity Unification           ClickHouse Engine (&lt;10ms)
+                             Zero-Exfiltration Perimeter    Model Context Protocol (MCP)</div>
         <ul>
             <li><strong>Identity Hub (The "Who"):</strong> Unifies disjointed touchpoints under a canonical <code>Dataspore_ID</code>.</li>
             <li><strong>Event Ledger (The "What"):</strong> High-speed, immutable event store for complete agent auditability.</li>
@@ -183,8 +205,14 @@
     <div class="cta-section">
         <h2>Ready to Collaborate?</h2>
         <p>Review the architecture, test the environment, or discuss joining the team.</p>
-        <a href="mailto:james@dataspore.net?subject=Dataspore%20Collaboration" class="btn">Connect with the Founder</a>
+        <span class="email-display">james@dataspore.net</span>
+        <br>
+        <a href="mailto:james@dataspore.net?subject=Dataspore%20Collaboration%20Inquiry" class="btn">Connect with James Atwood (Founder)</a>
     </div>
+
+    <footer>
+        &copy; Dataspore OS &bull; <a href="mailto:james@dataspore.net" style="color: var(--accent-blue); text-decoration: none;">james@dataspore.net</a>
+    </footer>
 </div>
 
 </body>
